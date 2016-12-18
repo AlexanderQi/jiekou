@@ -15,6 +15,9 @@ import java.util.*;
 import java.net.*;
 import JkSave.jksave;
 import cfgParam.JkParam;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 /**
  *
  * @author liqi
@@ -63,15 +66,19 @@ public class Jk104 {
         Instance.SaveFunc.IsCreateRtdb = Instance.jkp.IsCreateRtdb;
         Instance.SaveFunc.IniRtdb();  //初始化实时库
         Instance.ykcmd = new ykcommand();
-        
-        for(int i=0;i<args.length;i++)
-        {
-            
-        }
-        System.out.print("104接口启动\r\n");  
-        Timer t = new Timer();
-        t.schedule(new clrTimer(), 1000, 1000);  
         Instance.ConnectServer();
+        
+//        for(int i=0;i<args.length;i++)
+//        {
+//            
+//        }
+        System.out.print("104接口启动\r\n");  
+        //Timer t = new Timer();
+        //t.schedule(new clrTimer(), 1000, 1000);  
+        
+        ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+        service.scheduleAtFixedRate(new clrTimer(), 1, 1, TimeUnit.SECONDS);
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         byte[] buf = new byte[256];
         while (true) {
@@ -81,7 +88,8 @@ public class Jk104 {
             //System.out.flush();
             //System.out.print("输入字节[" + str.length() + "]: " + str);
             if (str.equals("exit")) {
-                t.cancel();
+                //t.cancel();
+                service.shutdown();
                 break;
             }
         }
