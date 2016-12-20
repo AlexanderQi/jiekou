@@ -72,7 +72,7 @@ public class Jk104 {
 //        {
 //            
 //        }
-        System.out.print("104接口启动\r\n");  
+        System.out.print("104接口启动 2016 YT_Float Subversion \r\n");  
         //Timer t = new Timer();
         //t.schedule(new clrTimer(), 1000, 1000);  
         
