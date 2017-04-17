@@ -1,13 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package iec104;
 
+
+package iec104;
 import Clr68Hv2.ClrSocket;
-//import iec104.JkOut;
-//import iec104.JkSave;
-//import iec104.MyUdp;
 import ClrIFace.ClrIFace_Out;
 import ClrIFace.ClrIFace_YK;
 import java.io.*;
