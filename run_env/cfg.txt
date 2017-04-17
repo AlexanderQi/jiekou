@@ -1,0 +1,32 @@
+//the "host" 数据库所在IP地址
+//the "srv?" 104协议服务端IP地址，一般分两个网段，如果只有一个网段则都填一样的。
+//the "gcall" 总召唤间隔 单位：秒
+//the "104port" 104协议通信端口 一般为2404
+//yxh_offset=1 遥信偏移量
+//ych_offset=16385 遥测偏移量 十进制
+//ykh_offset=24577 遥控偏移量 十进制
+//yth_offset=25089 遥调偏移量 十进制
+//printdebug=1 是否打印调试信息
+//ctag=0  差异性版本标志 0 标准 1 南瑞
+host=192.168.0.230
+srv2=192.168.2.254
+srv1=192.168.2.254
+104port=2404
+iport=31833
+gcall=60
+hot=0
+yxh_offset=1
+ych_offset=16385
+ykh_offset=24577
+yth_offset=25089
+yk=1
+ca=0
+save2rtdb=0
+save2file=0
+cqh=14
+cqm=40
+printdebug=1
+rtsrv1=127.0.0.1
+rtsrv2=127.0.0.1
+CreateRtdb=1
+ctag=0

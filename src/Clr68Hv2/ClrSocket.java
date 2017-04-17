@@ -163,7 +163,7 @@ public class ClrSocket implements Runnable {
             out = clr.getOutputStream();
             Thread.sleep(500);
             SendUframe(STARTDT_ACT, "启动帧");
-            SaveAYX(100,90104,1,"104接口 区号:"+Jk104.Instance.jkp.cfg_ca+" 已连接");
+            //SaveAYX(100,90104,1,"104接口 通道号:"+Jk104.Instance.jkp.cfg_ca+" 已连接");
             
             Thread.sleep(3000);
             SendGeneralCall();
@@ -172,7 +172,7 @@ public class ClrSocket implements Runnable {
             IsSocketError = true;
             ClrOut.AppendInfo("连接失败");
             ClrOut.AppendError("Connect()->" + e.toString());
-            SaveAYX(100,90104,0,"104接口 区号:"+Jk104.Instance.jkp.cfg_ca+" 已断开");
+            //SaveAYX(100,90104,0,"104接口 通道号:"+Jk104.Instance.jkp.cfg_ca+" 已断开");
             changeSrvIp();
         } finally {
             return isSuccess;
@@ -748,11 +748,10 @@ public class ClrSocket implements Runnable {
         if (IsSaveSection) {
             SaveSectionFile(Append);
         }
-        if (IsSaveToRtdb) {
-            SaveFunc.SaveToRtdb(SwapList_YC, SwapList_YX);
-        } else {
-            SaveToDb();
-        }
+       SaveFunc.SaveTodb(SwapList_YC, SwapList_YC);
+//        if (IsSaveToRtdb) {
+//            SaveFunc.SaveToRtdb(SwapList_YC, SwapList_YX);
+//        }
     }
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 

@@ -1,0 +1,65 @@
+2017-04-17 21:14:39:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:14:39:Info:CopyrightTag:0
+ 2017-04-17 21:14:39:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:14:46:Info:连接失败
+ 2017-04-17 21:14:46:Err:Connect()->java.net.SocketTimeoutException: connect timed out
+ 2017-04-17 21:14:46:Info:savetomysql()->java.sql.SQLException: No suitable driver found for jdbc:mysql://127.0.0.1:3306/pwtbl
+ 2017-04-17 21:14:46:Info:104接口 区号:0 已断开
+ 2017-04-17 21:14:46:Err:服务IP转为 192.168.2.254
+ 2017-04-17 21:14:47:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:14:47:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:14:54:Info:连接失败
+ 2017-04-17 21:14:54:Err:Connect()->java.net.SocketTimeoutException: connect timed out
+ 2017-04-17 21:14:54:Info:savetomysql()->java.sql.SQLException: No suitable driver found for jdbc:mysql://127.0.0.1:3306/pwtbl
+ 2017-04-17 21:14:54:Info:104接口 区号:0 已断开
+ 2017-04-17 21:14:54:Err:服务IP转为 192.168.2.254
+ 2017-04-17 21:14:54:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:14:54:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:15:01:Info:连接失败
+ 2017-04-17 21:15:01:Err:Connect()->java.net.SocketTimeoutException: connect timed out
+ 2017-04-17 21:15:01:Info:savetomysql()->java.sql.SQLException: No suitable driver found for jdbc:mysql://127.0.0.1:3306/pwtbl
+ 2017-04-17 21:15:01:Info:104接口 区号:0 已断开
+ 2017-04-17 21:15:01:Err:服务IP转为 192.168.2.254
+ 2017-04-17 21:15:01:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:15:01:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:17:03:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:17:03:Info:CopyrightTag:0
+ 2017-04-17 21:17:03:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:17:10:Info:连接失败
+ 2017-04-17 21:17:10:Err:Connect()->java.net.SocketTimeoutException: connect timed out
+ 2017-04-17 21:17:10:Info:savetomysql()->java.sql.SQLException: No suitable driver found for jdbc:mysql://127.0.0.1:3306/pwtbl
+ 2017-04-17 21:17:10:Info:104接口 通道号:0 已断开
+ 2017-04-17 21:17:10:Err:服务IP转为 192.168.2.254
+ 2017-04-17 21:17:11:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:17:11:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:17:18:Info:连接失败
+ 2017-04-17 21:17:18:Err:Connect()->java.net.SocketTimeoutException: connect timed out
+ 2017-04-17 21:17:18:Info:savetomysql()->java.sql.SQLException: No suitable driver found for jdbc:mysql://127.0.0.1:3306/pwtbl
+ 2017-04-17 21:17:18:Info:104接口 通道号:0 已断开
+ 2017-04-17 21:17:18:Err:服务IP转为 192.168.2.254
+ 2017-04-17 21:17:18:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:17:18:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:17:25:Info:连接失败
+ 2017-04-17 21:17:25:Err:Connect()->java.net.SocketTimeoutException: connect timed out
+ 2017-04-17 21:17:25:Info:savetomysql()->java.sql.SQLException: No suitable driver found for jdbc:mysql://127.0.0.1:3306/pwtbl
+ 2017-04-17 21:17:25:Info:104接口 通道号:0 已断开
+ 2017-04-17 21:17:25:Err:服务IP转为 192.168.2.254
+ 2017-04-17 21:17:25:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:17:25:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:41:20:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:41:20:Info:192.168.0.230
+ 2017-04-17 21:41:20:Info:CopyrightTag:0
+ 2017-04-17 21:41:20:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:41:27:Info:连接失败
+ 2017-04-17 21:41:27:Err:Connect()->java.net.SocketTimeoutException: connect timed out
+ 2017-04-17 21:41:27:Err:服务IP转为 192.168.2.254
+ 2017-04-17 21:41:28:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:41:28:Info:192.168.0.230
+ 2017-04-17 21:41:28:Info:准备连接192.168.2.254 port:2404
+ 2017-04-17 21:41:35:Info:连接失败
+ 2017-04-17 21:41:35:Err:Connect()->java.net.SocketTimeoutException: connect timed out
+ 2017-04-17 21:41:35:Err:服务IP转为 192.168.2.254
+ 2017-04-17 21:41:35:Info:tcp://192.168.0.40:31833
+ 2017-04-17 21:41:35:Info:192.168.0.230
+ 2017-04-17 21:41:35:Info:准备连接192.168.2.254 port:2404
+ 
