@@ -5,7 +5,7 @@ import Clr68Hv2.ClrSocket;
 import ClrIFace.ClrIFace_Out;
 import ClrIFace.ClrIFace_YK;
 import java.io.*;
-import java.util.*;
+//import java.util.*;
 import java.net.*;
 import JkSave.jksave;
 import cfgParam.JkParam;
