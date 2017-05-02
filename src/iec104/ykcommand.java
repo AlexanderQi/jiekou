@@ -8,10 +8,8 @@ import ClrIFace.ykobj;
 import ClrIFace.ykExeObj;
 import java.sql.*;
 import java.util.LinkedList;
-//import java.util.List;
 import java.util.Queue;
 import ClrIFace.ClrIFace_YK;
-//import javax.print.attribute.standard.DateTimeAtCompleted;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -28,7 +26,7 @@ public class ykcommand implements ClrIFace_YK {
     public Date LastCtrlCmdTime;
     public cfgParam.JkParam jkp;
     public JkOut out = JkOut.Instance();
-    public H2Helper helper = H2Helper.Instance();
+    //public H2Helper helper = H2Helper.Instance();
 
     public ykcommand() {
         jkp = Jk104.Instance.jkp;
@@ -54,24 +52,24 @@ public class ykcommand implements ClrIFace_YK {
     }
 
     Statement ykstatement = null;
+    int numTag = 1;
     public synchronized  void LoadYK() {
         if (YkQueue.size() != 0) {
             return;
         }      
         try{
-            if(helper.conn == null || helper.conn.isClosed()){
-                helper.dbDir = "tcp://" + jkp.cfg_host + ":" + jkp.cfg_insidePort;
-                helper.Connect("sa","sa");
-            }
             if(ykstatement == null||ykstatement.isClosed()){
-                ykstatement = helper.conn.createStatement();
+                ykstatement = JkSave.jksave.instance.ykConn.createStatement();
             }
         }catch(Exception e){
-            out.AppendError("LoadYK()->连接实时库错误 "+e.toString());
+            out.AppendError("LoadYK()->连接数据库错误 "+e.toString());
         }
         
-        String sql = "select t.id,t.CONTROLAREA,t.schemeid,t.schemeindex,t.cmddatetime,t.czh,t.ykyth,t.ykytvalue,t.ytvalue,t.ykyttype from tblcommand t where t.dealtag=0 and t.CONTROLAREA="
-                + jkp.cfg_ca + " order by t.id,t.schemeid,t.schemeindex";
+        String sql = "select t.id,t.CONTROLAREA,t.schemeid,t.schemeindex,t.cmddatetime,t.czh,t.ykyth,t.ykytvalue,t.ytvalue,t.ykyttype from tblcommand t where t.dealtag=0"
+                + " order by t.id,t.schemeid,t.schemeindex";
+//                
+//                "select t.id,t.CONTROLAREA,t.schemeid,t.schemeindex,t.cmddatetime,t.czh,t.ykyth,t.ykytvalue,t.ytvalue,t.ykyttype from tblcommand t where t.dealtag=0 and t.CONTROLAREA="
+//                + jkp.cfg_ca + " order by t.id,t.schemeid,t.schemeindex";
         //ResultSet rs = SloaderView.instance.ExeSql(sql);
         ResultSet rs = null;
         try {    
@@ -120,7 +118,11 @@ public class ykcommand implements ClrIFace_YK {
                 }
             }
             int ct = YkQueue.size();
-            out.AppendInfo("载入命令: " + ct);
+            if((ct>0) || (numTag % 20) == 0){
+                out.AppendInfo("载入命令: " + ct);
+                numTag = 1;
+            }
+            numTag++;
             CanLoad = (ct == 0);
         } catch (Exception e) {
             out.AppendError(" LoadYK()->"+e.toString());
@@ -147,7 +149,7 @@ public class ykcommand implements ClrIFace_YK {
         String sql = sb.toString();
         try {
             if(CommandState == null || CommandState.isClosed())
-                CommandState = helper.conn.createStatement();
+                CommandState = JkSave.jksave.instance.ykConn.createStatement();
             CommandState.execute(sql);     
         } catch (Exception e) {
             out.AppendError("ykcommand->ChangeOneCommandState()"+e.toString());

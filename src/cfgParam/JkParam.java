@@ -128,7 +128,7 @@ public class JkParam {
             }
 
             StringBuilder sb = new StringBuilder();
-            sb.append("rtdbIP:").append(cfg_host).append('\n')
+            sb.append("DBIP:").append(cfg_host).append('\n')
                     .append("104srv1:").append(cfg_server1).append('\n')
                     .append("104srv2:").append(cfg_server2).append('\n')
                     .append("general call(seconds):").append(cfg_gcall)

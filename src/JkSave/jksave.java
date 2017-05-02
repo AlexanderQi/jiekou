@@ -61,9 +61,10 @@ public class jksave implements ClrIFace_YCYX {
 
     }
     Connection mysqlConn = null;
+    public Connection ykConn = null;
     //public String myip = "127.0.0.1";
     String driver = "com.mysql.jdbc.Driver";
-    String url = "jdbc:mysql://" + cfg_host + ":3306/pwtbl";
+    String url = "";
     String user = "dba_softcore";
     String password = "softcore";
 
@@ -74,6 +75,7 @@ public class jksave implements ClrIFace_YCYX {
         url = "jdbc:mysql://" + cfg_host + ":3306/pwtbl";
         Class.forName(driver);
         mysqlConn = DriverManager.getConnection(url, user, password);
+        ykConn = DriverManager.getConnection(url, user, password);
         Statement stat = mysqlConn.createStatement();
         stat.execute("delete from tblycvalue where EQUIPMENTID = '-1';");
         stat.execute("delete from tblyxvalue where EQUIPMENTID = '-1';");
@@ -261,7 +263,7 @@ public class jksave implements ClrIFace_YCYX {
     public void SaveToRtdb(List<ycyxinfo> YcList, List<ycyxinfo> YxList) {
         try {
             if (helper.conn == null || helper.conn.isClosed()) {
-                helper.dbDir = "tcp://" + cfg_host + ":" + cfg_insidePort;
+                helper.dbDir = "tcp://127.0.0.1:" + cfg_insidePort;
                 helper.Connect("sa", "sa");
             }
             if (helper.stat.isClosed()) {

@@ -131,7 +131,7 @@ public class clrTimer extends TimerTask
                 if (S_GetCommand >= Second_GetCommand) {
                     S_GetCommand = 0;
                     //if(SloaderView.instance.cfg_IsYK == 1)
-                    out.AppendStr(df.format(now)+">>Pulse");
+                    //out.AppendStr(df.format(now)+">>Pulse");
                    // jks.myudp.SendMsg();   //通知守护程序（心跳信号）
 
                     if(Jk104.Instance.ykcmd != null){

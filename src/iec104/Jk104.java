@@ -58,7 +58,7 @@ public class Jk104 {
         Instance.SaveFunc.cfg_insidePort = Instance.jkp.cfg_insidePort;
         Instance.SaveFunc.CHANNEL = Instance.jkp.cfg_ca;
         Instance.SaveFunc.IsCreateRtdb = Instance.jkp.IsCreateRtdb;
-        Instance.SaveFunc.IniRtdb();  //初始化实时库
+        //Instance.SaveFunc.IniRtdb();  //初始化实时库
         Instance.SaveFunc.iniDb();
         Instance.ykcmd = new ykcommand();
         Instance.ConnectServer();
@@ -101,8 +101,6 @@ public class Jk104 {
     public static boolean IsDebugMode = false;
     public void ConnectServer()
     {   
-        this.Out_.AppendInfo(SaveFunc.helper.dbDir);
-        this.Out_.AppendInfo(SaveFunc.cfg_host);
         try {
             if (clr_instance == null) {
                 clr_instance = new ClrSocket(jkp.cfg_server1, jkp.cfg_server2, jkp.cfg_104Port);
