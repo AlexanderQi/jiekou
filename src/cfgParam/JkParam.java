@@ -57,8 +57,6 @@ public class JkParam {
         LocalHostName = GetHostName();
         dir =
                 System.getProperty("os.name") + " "
-                + System.getProperty("os.version") + "\njava "
-                + System.getProperty("java.version") + "\n"
                 + System.getProperty("user.name") + "\nUserPath="
                 + CurrentPath + "\n";
         dir = LocalHostName + '\n' + dir;

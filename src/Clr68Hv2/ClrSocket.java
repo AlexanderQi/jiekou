@@ -1233,7 +1233,6 @@ public class ClrSocket implements Runnable {
                 byte v = tmpRcvBuf[i];
                 int value = GetUnsignedValue(v);
                 sb.append(Integer.toHexString(value + 0x100).substring(1).toUpperCase());
-
                 sb.append(' ');
             }
             if (RcvTotalLen > PrintByteCount) {

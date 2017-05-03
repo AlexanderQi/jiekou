@@ -18,9 +18,7 @@ public class JkOut implements ClrIFace_Out {
     public static JkOut Instance() {
         if (instance == null) {
             instance = new JkOut();
-        }
-        
-        
+        } 
         return instance;
     }
     
@@ -36,26 +34,23 @@ public class JkOut implements ClrIFace_Out {
     @Override
     public void AppendInfo(String str) {  //记入日志
         //System.out.println("Info:" + str);
-        log.info("Info:" + str);
+        log.info(str);
     }
 
     @Override
     public void AppendError(String str) {  //记入日志
         //System.out.println("Err:" + str);
-        log.error("Err:" + str);
+        log.error(str);
     }
 
     @Override
     public void AppendStr(String str) {  //不记入日志
-        System.out.println("Msg:" + str);
+        System.out.println(str);
     }
 
     @Override
     public void AppendDebug(String str) { //记入日志
-        if (log4debug) {
-            //System.out.println("Debug:" + str);
-            log.debug("Debug:" + str);
-        }
+            log.debug(str);
     }
 
     @Override
@@ -64,6 +59,6 @@ public class JkOut implements ClrIFace_Out {
     }
 
     public void StatusBarText(String str) {  //不记入日志
-       // System.out.println("State:" + str);
+
     }
 }
