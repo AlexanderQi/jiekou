@@ -43,7 +43,7 @@ public class jksave implements ClrIFace_YCYX {
     public Integer CHANNEL = 1;
     //////////////////////////////////////////////////////////////////////////
 
-    public void ClrSaveFunc(ClrIFace_Out OutInstance) {
+    public void setOut(ClrIFace_Out OutInstance) {
         instance = this;
         out = OutInstance;
     }
@@ -72,14 +72,19 @@ public class jksave implements ClrIFace_YCYX {
         if (cfg_host == null) {
             throw new Exception("未指定数据库地址");
         }
-        url = "jdbc:mysql://" + cfg_host + ":3306/pwtbl";
-        Class.forName(driver);
-        mysqlConn = DriverManager.getConnection(url, user, password);
-        ykConn = DriverManager.getConnection(url, user, password);
-        Statement stat = mysqlConn.createStatement();
-        stat.execute("delete from tblycvalue where EQUIPMENTID = '-1';");
-        stat.execute("delete from tblyxvalue where EQUIPMENTID = '-1';");
-        stat.close();
+        try {
+            url = "jdbc:mysql://" + cfg_host + ":3306/pwtbl";
+            Class.forName(driver);
+            mysqlConn = DriverManager.getConnection(url, user, password);
+            ykConn = DriverManager.getConnection(url, user, password);
+            Statement stat = mysqlConn.createStatement();
+            stat.execute("delete from tblycvalue where EQUIPMENTID = '-1';");
+            stat.execute("delete from tblyxvalue where EQUIPMENTID = '-1';");
+            stat.close();
+        } catch (Exception ex) {
+            out.AppendError("iniDb()-> 数据库连接异常-> Db url:" + url + " [Error:]" + ex.getMessage());
+            throw ex;
+        }
     }
 
     public void IniRtdb() {
@@ -151,6 +156,7 @@ public class jksave implements ClrIFace_YCYX {
         }
         return saved;
     }
+
     public int SaveYxFile(List<ycyxinfo> YxList, boolean IsChanged) {
 
         String fn_yx;
@@ -192,6 +198,7 @@ public class jksave implements ClrIFace_YCYX {
 
         return saved;
     }
+
     public int SaveYcToDb(List<ycyxinfo> YcList, String RefreshTime) {
         int saved = 0;
 //        int ct = YcList.size();
@@ -228,6 +235,7 @@ public class jksave implements ClrIFace_YCYX {
 //        }
         return saved;
     }
+
     public int SaveYxToDb(List<ycyxinfo> YxList, String RefreshTime) {
         int ct = YxList.size();
         int saved = 0;
@@ -259,7 +267,9 @@ public class jksave implements ClrIFace_YCYX {
 //        }
         return saved;
     }
+
     //@Override
+
     public void SaveToRtdb(List<ycyxinfo> YcList, List<ycyxinfo> YxList) {
         try {
             if (helper.conn == null || helper.conn.isClosed()) {
@@ -400,7 +410,7 @@ public class jksave implements ClrIFace_YCYX {
 
         }
     }
-    
+
     public void SaveToMysql(List<ycyxinfo> YcList, List<ycyxinfo> YxList) {
         PreparedStatement ps_usql_yc = null;
         PreparedStatement ps_isql_yc = null;
@@ -448,7 +458,7 @@ public class jksave implements ClrIFace_YCYX {
                         ps_isql_yc.setTimestamp(4, tst);
                         ps_isql_yc.setInt(5, yc.iCZH);
                         ps_isql_yc.setInt(6, CHANNEL * 10000 + yc.iDH);
-                        
+
                         ps_isql_yc.addBatch();
                         ic++;
 //                        sb.append("insert into tblycvalue (ych,ycvalue,refreshtime) values (").
@@ -572,4 +582,3 @@ public class jksave implements ClrIFace_YCYX {
  System.out.println(e.toString());
  }
  }*/
-

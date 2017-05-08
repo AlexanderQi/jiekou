@@ -23,8 +23,9 @@ public class JkOut implements ClrIFace_Out {
     }
     
     public void SetLogDir(String DirString){
-        log = Logger.getLogger("");
+        
         PropertyConfigurator.configure(DirString);
+        log = Logger.getLogger("");
     }
 
     private JkOut() {
@@ -55,7 +56,7 @@ public class JkOut implements ClrIFace_Out {
 
     @Override
     public void SetConnectInfo(String str) { //记入日志
-        System.out.println("ConnInfo:" + str);
+        log.info("ConnInfo:" + str);
     }
 
     public void StatusBarText(String str) {  //不记入日志

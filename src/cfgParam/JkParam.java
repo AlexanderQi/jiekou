@@ -55,12 +55,10 @@ public class JkParam {
         //UserPath = System.getenv("SC_JK");
         CurrentPath = System.getProperty("user.dir");
         LocalHostName = GetHostName();
-        dir =
-                System.getProperty("os.name") + " "
+        dir = "\n"+ System.getProperty("os.name") + "\n"
                 + System.getProperty("user.name") + "\nUserPath="
-                + CurrentPath + "\n";
-        dir = LocalHostName + '\n' + dir;
-        out.AppendDebug(dir);
+                + CurrentPath + "\n"+LocalHostName;
+        out.AppendInfo(dir);
     }
 
     public String GetHostName() {
@@ -126,7 +124,7 @@ public class JkParam {
             }
 
             StringBuilder sb = new StringBuilder();
-            sb.append("DBIP:").append(cfg_host).append('\n')
+            sb.append("\nDBIP:").append(cfg_host).append('\n')
                     .append("104srv1:").append(cfg_server1).append('\n')
                     .append("104srv2:").append(cfg_server2).append('\n')
                     .append("general call(seconds):").append(cfg_gcall)
@@ -135,7 +133,7 @@ public class JkParam {
                     .append(cfg_ca).append("\nYcOffset=0x").append(Integer.toHexString(ych_offset).toUpperCase())
                     .append(" YxOffset=0x").append(Integer.toHexString(yxh_offset).toUpperCase())
                     .append(" YkOffset=0x").append(Integer.toHexString(ykh_offset).toUpperCase());
-            out.SetConnectInfo(sb.toString());
+            out.AppendInfo(sb.toString());
 
             if (cfg_IsYK == 1) {
                 // ykcmd = new ykcommand();
