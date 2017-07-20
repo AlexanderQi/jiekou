@@ -38,7 +38,7 @@ public class jksave implements ClrIFace_YCYX {
 
     ///////////////////////////////////////////////////////////////////////////
     public boolean IsCreateRtdb = false;
-    public String cfg_host = "127.0.0.1";
+    public String cfg_host = "127.0.0.1:3306/pwtbl";
     public int cfg_insidePort = 31833;
     public Integer CHANNEL = 1;
     //////////////////////////////////////////////////////////////////////////
@@ -72,7 +72,7 @@ public class jksave implements ClrIFace_YCYX {
         if (cfg_host == null) {
             throw new Exception("未指定数据库地址");
         }
-        url = "jdbc:mysql://" + cfg_host + ":3306/pwtbl";
+        url = "jdbc:mysql://" + cfg_host;
         Class.forName(driver);
         mysqlConn = DriverManager.getConnection(url, user, password);
         ykConn = DriverManager.getConnection(url, user, password);
