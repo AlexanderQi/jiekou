@@ -1142,11 +1142,12 @@ public class ClrSocket implements Runnable {
             }
         }
         
-        long bet = GetBetweenToNow(LastTimeSendYk); 
+         
                 
      
         boolean overtime = false; //返校超时标记
         if(OnWaitingForReturnOfYKYT){ //如果在等待遥控返校期间，不发命令 
+            long bet = GetBetweenToNow(LastTimeSendYk);
             if(bet <= 15) 
             {
                 ClrOut.AppendInfo("等待返校");
@@ -1155,15 +1156,15 @@ public class ClrSocket implements Runnable {
                 OnWaitingForReturnOfYKYT = false;
                 overtime = true;
                 ClrOut.AppendInfo("超时15s,结束等待返校");
-            }
-             
+            }       
+            
         }
      
         //ClrOut.AppendInfo("控制时间判断");
         if (LastTimeSendYk != null) //距离上次发送遥控指令要间隔20s
         {
             if (CurYkExeObj.ykType == ykExeObj.ExeType.Prepare && CurYkExeObj.ykyttype == 0) {
-                if (bet < 5) {
+                if (GetBetweenToNow(LastTimeSendYk) < 5) {
                     ClrOut.AppendInfo("距离上次控制时间" + LastTimeSendYk + "还不足5s");
                     return -1;
                 }
