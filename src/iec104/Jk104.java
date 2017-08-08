@@ -126,6 +126,7 @@ public class Jk104 {
                 //myout.log4debug = IsDebugMode;
                 clr_instance.CopyrightTag = jkp.cfg_copyright;
                 out_.AppendInfo("RuleTag:" + clr_instance.CopyrightTag);
+                out_.AppendInfo("Save section:" + clr_instance.IsSaveSection);
                 SaveFunc.out = Instance.out_;
             }
             if (clr_instance.Connect()) {

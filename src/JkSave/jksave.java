@@ -118,13 +118,13 @@ public class jksave implements ClrIFace_YCYX {
 
     public int SaveYcFile(List<ycyxinfo> YcList, boolean IsChanged) {
         String fn_yc;
-        fn_yc = "/Current.YC";
+        fn_yc = "./Current.YC";
         int saved = 0;
         try {
             FileWriter fw = new FileWriter(fn_yc, IsChanged);
-            String stime = "";//SloaderView.instance.GetCurTimeStr();
+            String stime = df.format(new Date()); //SloaderView.instance.GetCurTimeStr();
             if (!IsChanged) {
-                fw.append(stime).append('\t').append(CHANNEL.toString()).append('\n');
+                fw.append(stime).append("\t 通道号:").append(CHANNEL.toString()).append('\n');
                 fw.append("XH	CZH	DH	Value").append('\n');
             }
             int ct = YcList.size();
@@ -154,13 +154,13 @@ public class jksave implements ClrIFace_YCYX {
     public int SaveYxFile(List<ycyxinfo> YxList, boolean IsChanged) {
 
         String fn_yx;
-        fn_yx = "/Current.YX";//SloaderView.UserPath + "/Current.YX";
+        fn_yx = "./Current.YX";//SloaderView.UserPath + "/Current.YX";
         int saved = 0;
         try {
-            String stime = "";//SloaderView.instance.GetCurTimeStr();
+            String stime = df.format(new Date());//SloaderView.instance.GetCurTimeStr();
             FileWriter fw = new FileWriter(fn_yx, IsChanged);
             if (!IsChanged) {
-                fw.append(stime).append('\t').append(CHANNEL.toString()).append('\n');
+               fw.append(stime).append("\t 通道号:").append(CHANNEL.toString()).append('\n');
                 fw.append("XH	CZH	DH	Value").append('\n');
             }
             int ct = YxList.size();

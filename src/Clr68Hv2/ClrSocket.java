@@ -1293,11 +1293,11 @@ public class ClrSocket implements Runnable {
         SaveFunc.SaveYxFile(SwapList_YX, Append);
     }
 
-    void SaveToDb() {
-        String TimeStr = GetCurTimeStr();
-        SaveFunc.SaveYcToDb(SwapList_YC, TimeStr);
-        SaveFunc.SaveYxToDb(SwapList_YX, TimeStr);
-    }
+//    void SaveToDb() {
+//        String TimeStr = GetCurTimeStr();
+//        SaveFunc.SaveYcToDb(SwapList_YC, TimeStr);
+//        SaveFunc.SaveYxToDb(SwapList_YX, TimeStr);
+//    }
 
     private void ClearSwap() {
         SwapList_YC.clear();
